@@ -19,16 +19,7 @@ async function main() {
 
 }
 
-let chat1 = new Chat({
-    from: "Abhi",
-    to: "Dnyandip",
-    msg:"Have you done your work",
-    created_at: Date()
-});
 
-chat1.save().then((res) => {
-    console.log(res);
-});
 
 app.get("/", (req, res) => {
     res.send("Server is working");
