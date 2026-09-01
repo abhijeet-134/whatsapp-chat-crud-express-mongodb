@@ -7,6 +7,7 @@ const Chat = require("./model/chat.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
 
 main().then(() => {
@@ -19,6 +20,12 @@ async function main() {
 
 }
 
+// Index Route 
+app.get("/chats", async  (req, res) => {
+    let chats = await Chat.find();
+    console.log(chats);
+    res.render("index.ejs", {chats});
+});
 
 
 app.get("/", (req, res) => {
